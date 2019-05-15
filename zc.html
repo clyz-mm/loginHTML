@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账号注册</title>
+	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<!-- load css -->
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/login.css" media="all">
+<script type="text/javascript">
+  function test()
+  {
+	  var user = document.forms[0].user.value;
+	  var password = document.forms[0].password.value;
+	  var repassword = document.forms[0].repassword.value;
+	  var mail = document.forms[0].mail.value;
+	  var objUser = /^[a-zA-Z0-9]{6,8}$/;
+	  var objPassword = /^[\w-]{6,16}$/;
+	  var objMail =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	  
+	  if(user.length<=0)
+	  	alert("账号不能为空！");
+	  else if(password.length<=0)
+	  	alert("密码不能为空！");
+	  else if(repassword!=password)
+	  	alert("两次输入的密码不一致！");
+	  else if(mail.length<=0)
+	  	alert("邮箱不能为空！");
+	  else if(!objUser.test(user))
+	  	alert("账号不符合要求！");
+	  else if(!objPassword.test(password))
+	  	alert("密码不符合要求！");
+	  else if(!objMail.test(mail))
+	  	alert("邮箱格式不合法！");
+	  else
+	  {
+		  alert("注册成功！");
+		  document.forms[0].submit();
+		  }
+	  }
+</script>
+</head>
+<body>
+<div class="layui-canvs"></div>
+<div class="layui-layout layui-layout-login">
+	<h1>
+		 <strong>注册测试</strong>
+		 <em>zc test</em>
+	</h1>
+    <form action="" method="post">
+	<div class="layui-user-icon larry-login">
+		 <input type="text" placeholder="账号" class="login_txtbx" name="user"/>
+	</div>
+	<div class="layui-pwd-icon larry-login">
+		 <input type="password"  placeholder="密码" class="login_txtbx" name="password"/>
+	</div>
+    <div class="layui-pwd-icon larry-login">
+		 <input type="password" placeholder="重新输入密码" class="login_txtbx" name="repassword"/>
+	</div>
+    <div class="layui-user-icon larry-login">
+		 <input type="text" placeholder="邮箱" class="login_txtbx" name="mail"/>
+	</div>
+    <div class="layui-submit larry-login">
+    	<input type="button" value="注册" class="submit_btn" onClick="test()"/>
+    </div>
+  </form>
+  
+    
+    <div class="layui-login-text">
+    	<p>© 2019 cmm 版权所有</p>
+       
+    </div>
+</div>
+</body>
+</html>
